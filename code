@@ -1,0 +1,47 @@
+# Module 8 Lab
+# David Vance
+# Professor Kevin Chang
+# CIS 129 - Programming and Problem Solving 1
+"""This lab prompts the user to input a word, and then checks to see if it is
+a palindrome.  Any spaces or non-letters are to be ignored, as well as upper
+and lower case.  This is to be a function that takes a string and returns True
+if it is a palindrome, and returns False if it is not."""
+
+# INITIALIZING
+# Import libraries, define functions and set variables as needed
+
+test_word = ''  # Set the test_world string to null value
+
+
+def is_palindrome(word_to_test):
+    """This function takes the word to test, pushes each letter to the 
+    simulated stack, then pops the last letter one at a time to compare with
+    the word_to_test.  It will set the appropriate result value and return
+    to be displayed."""
+    return (palindrome_result)  # True or False
+
+def pre_process_word(word_to_test):
+    """This function prompts the user for a word and then processes it before
+    passing to the is_palindrome function.  Non-letters are to be stripped out
+    and convert every letter to a single case."""
+    return(word_to_test)
+
+
+# PROCESSING
+# Set variables, call functions
+
+test_word = str(input('Please enter a word to test:'))  
+# Force a string value if the user inputs nothing but numbers
+
+word_to_test = pre_process_word(test_word)
+# Strip non-letter characters, convert to upper case
+
+result = is_palindrome(palindrome_result)
+# Determine if our test word is a palindrome
+
+
+# TERMINATION
+# Print a results message
+
+print(f'The test word {test_word} is a palindrome: {result}')
+# Nothing fancy here, just a True or False result
