@@ -79,11 +79,3 @@ palindrome_result = is_palindrome(return_word)
 # as well as the result
 
 print(f'\nYour test word {word_to_test} is a palindrome: {palindrome_result}')
-
-
-# TERMINATION
-# Print a results message
-
-print(f'The test word {test_word} is a palindrome: {result}')
-print(word_to_test)
-# Nothing fancy here, just a True or False result
