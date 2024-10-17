@@ -11,20 +11,31 @@ if it is a palindrome, and returns False if it is not."""
 # Import libraries, define functions and set variables as needed
 
 test_word = ''  # Set the test_world string to null value
-
+result = True   # Force a true until a False condition exists
 
 def is_palindrome(word_to_test):
     """This function takes the word to test, pushes each letter to the 
     simulated stack, then pops the last letter one at a time to compare with
     the word_to_test.  It will set the appropriate result value and return
     to be displayed."""
-    return (palindrome_result)  # True or False
+    return (palindrome_result)  # Return True or False
 
 def pre_process_word(word_to_test):
     """This function prompts the user for a word and then processes it before
     passing to the is_palindrome function.  Non-letters are to be stripped out
     and convert every letter to a single case."""
-    return(word_to_test)
+    # Prime return_word to an empty string
+    return_word = ''
+
+    # check each character to see if it is a letter
+    for letter in word_to_test:
+        if letter.isalpha():    # Convert this to a single line if statement
+            return_word += letter
+        
+    # Convert to uppercase
+    return_word = return_word.upper()
+     
+    return(return_word)
 
 
 # PROCESSING
@@ -36,7 +47,7 @@ test_word = str(input('Please enter a word to test:'))
 word_to_test = pre_process_word(test_word)
 # Strip non-letter characters, convert to upper case
 
-result = is_palindrome(palindrome_result)
+#  result = is_palindrome(palindrome_result)
 # Determine if our test word is a palindrome
 
 
@@ -44,4 +55,5 @@ result = is_palindrome(palindrome_result)
 # Print a results message
 
 print(f'The test word {test_word} is a palindrome: {result}')
+print(word_to_test)
 # Nothing fancy here, just a True or False result
