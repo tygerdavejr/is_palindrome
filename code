@@ -58,9 +58,15 @@ def input_test_word():
         
         # Convert to uppercase
         return_word = return_word.upper()
+        """To be logically correct, I would probably not do this inside the while 
+        loop.  This probably should be pulled out and moved to just above the 
+        return.  This way the step isn't being processed if there isn't a word 
+        input."""
 
         if not return_word: print(f'{word_to_test} has no letters.  Try again.')
-     
+
+    # move Convert to uppercase here
+
     return(word_to_test, return_word) # Utilizing a tuple to be unpacked
 
 
