@@ -5,50 +5,80 @@
 """This lab prompts the user to input a word, and then checks to see if it is
 a palindrome.  Any spaces or non-letters are to be ignored, as well as upper
 and lower case.  This is to be a function that takes a string and returns True
-if it is a palindrome, and returns False if it is not."""
+if it is a palindrome, and returns False if it is not.  I did simplify some
+code, but when I had an IF inside of a FOR I felt it more legible to keep that
+clean."""
 
 # INITIALIZING
 # Import libraries, define functions and set variables as needed
 
-test_word = ''  # Set the test_world string to null value
-result = True   # Force a true until a False condition exists
 
 def is_palindrome(word_to_test):
     """This function takes the word to test, pushes each letter to the 
     simulated stack, then pops the last letter one at a time to compare with
     the word_to_test.  It will set the appropriate result value and return
     to be displayed."""
-    return (palindrome_result)  # Return True or False
 
-def pre_process_word(word_to_test):
+    # Force a true result until a false condition exists
+    result = True
+
+    #convert the whole word into letters by assigning to a list
+    letters = []
+    letters += word_to_test
+    
+    # Simulate the stack and push each letter of our word onto it
+    stack = []
+    for letter in range(len(letters)): stack.append(letters[letter])
+
+    # Pull a letter off the stack and compare it with each letter in
+    # our word.  We only do this until the first False comparison.
+    for letter in range(len(letters)):
+        test_letter = stack.pop()
+        if test_letter != letters[letter]:
+            result = False 
+            break  # As soon as we get a false there is no need to continue
+
+    return (result)  # Return True or False
+
+def input_test_word():
     """This function prompts the user for a word and then processes it before
     passing to the is_palindrome function.  Non-letters are to be stripped out
     and convert every letter to a single case."""
+    
     # Prime return_word to an empty string
     return_word = ''
 
-    # check each character to see if it is a letter
-    for letter in word_to_test:
-        if letter.isalpha():    # Convert this to a single line if statement
-            return_word += letter
+    while not return_word: 
+    # Repeat input until we get a valid word to test
+        word_to_test = str(input('Please enter a word to test:'))  
+    
+        # check each character to see if it is a letter
+        for letter in word_to_test: 
+            if letter.isalpha(): return_word += letter
         
-    # Convert to uppercase
-    return_word = return_word.upper()
+        # Convert to uppercase
+        return_word = return_word.upper()
+
+        if not return_word: print(f'{word_to_test} has no letters.  Try again.')
      
-    return(return_word)
+    return(word_to_test, return_word) # Utilizing a tuple to be unpacked
 
 
 # PROCESSING
-# Set variables, call functions
+# Set necessary values as needed, call functions and modules
 
-test_word = str(input('Please enter a word to test:'))  
-# Force a string value if the user inputs nothing but numbers
+# Input a word, strip non-letter characters, convert to upper case
+word_to_test, return_word = input_test_word()
 
-word_to_test = pre_process_word(test_word)
-# Strip non-letter characters, convert to upper case
-
-#  result = is_palindrome(palindrome_result)
 # Determine if our test word is a palindrome
+palindrome_result = is_palindrome(return_word)
+
+
+# TERMINATION
+# Print a results message.  I want to include the initial word the user input
+# as well as the result
+
+print(f'\nYour test word {word_to_test} is a palindrome: {palindrome_result}')
 
 
 # TERMINATION
